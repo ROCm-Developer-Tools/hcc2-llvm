@@ -350,7 +350,8 @@ bool isReadOnlySegment(const GlobalValue *GV, AMDGPUAS AS) {
 }
 
 bool shouldEmitConstantsToTextSection(const Triple &TT) {
-  return TT.getOS() != Triple::AMDHSA;
+  return ((TT.getOS() != Triple::AMDHSA) &&
+         (TT.getOS() != Triple::CUDA));
 }
 
 int getIntegerAttribute(const Function &F, StringRef Name, int Default) {
@@ -818,7 +819,7 @@ AMDGPUAS getAMDGPUAS(Triple T) {
   auto Env = T.getEnvironmentName();
   AMDGPUAS AS;
   if (Env == "amdgiz" || Env == "amdgizcl" ||
-      T.getEnvironment() == Triple::HCC) {
+      (T.getEnvironment() == Triple::HCC) || (T.getOS() == Triple::CUDA)) {
     AS.FLAT_ADDRESS     = 0;
     AS.PRIVATE_ADDRESS  = 5;
     AS.REGION_ADDRESS   = 4;

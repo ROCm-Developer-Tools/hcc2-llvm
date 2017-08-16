@@ -230,7 +230,8 @@ static StringRef computeDataLayout(const Triple &TT) {
 
   // 32-bit private, local, and region pointers. 64-bit global, constant and
   // flat.
-  if (TT.getEnvironmentName() == "amdgiz" ||
+  if (TT.getOS() == Triple::CUDA ||
+      TT.getEnvironmentName() == "amdgiz" ||
       TT.getEnvironmentName() == "amdgizcl" ||
       TT.getEnvironment() == Triple::HCC)
     return "e-p:64:64-p1:64:64-p2:64:64-p3:32:32-p4:32:32-p5:32:32"
@@ -248,7 +249,8 @@ static StringRef getGPUOrDefault(const Triple &TT, StringRef GPU) {
 
   // HSA only supports CI+, so change the default GPU to a CI for HSA.
   if (TT.getArch() == Triple::amdgcn)
-    return (TT.getOS() == Triple::AMDHSA) ? "kaveri" : "tahiti";
+    return ((TT.getOS() == Triple::AMDHSA) || (TT.getOS() == Triple::CUDA))
+      ? "kaveri" : "tahiti";
 
   return "r600";
 }

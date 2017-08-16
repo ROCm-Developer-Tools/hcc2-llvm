@@ -630,8 +630,15 @@ public:
     return getArch() == Triple::nvptx || getArch() == Triple::nvptx64;
   }
 
-  /// Tests wether the target supports comdat
-  bool supportsCOMDAT() const { return !isOSBinFormatMachO() && (getArch() != Triple::amdgcn); }
+  /// Tests whether target is a GPU that executes kernels on a grid of cores
+  bool isGpu() const {
+    return getArch() == Triple::nvptx || getArch() == Triple::nvptx64
+        || getArch() == Triple::amdgcn;
+  }
+
+  /// Tests whether the target supports comdat
+  bool supportsCOMDAT() const { return !isOSBinFormatMachO() &&
+       (getArch() != Triple::amdgcn); }
 
   /// @}
   /// @name Mutators
