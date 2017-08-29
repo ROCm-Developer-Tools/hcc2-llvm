@@ -145,7 +145,8 @@ bool AMDGPUPromoteAlloca::runOnFunction(Function &F) {
 
   const Triple &TT = TM->getTargetTriple();
   IsAMDGCN = TT.getArch() == Triple::amdgcn;
-  IsAMDHSA = TT.getOS() == Triple::AMDHSA;
+  IsAMDHSA = (TT.getOS() == Triple::AMDHSA) ||
+             (TT.getOS() == Triple::CUDA);
 
   const AMDGPUSubtarget &ST = TM->getSubtarget<AMDGPUSubtarget>(F);
   if (!ST.isPromoteAllocaEnabled())
