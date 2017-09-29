@@ -178,7 +178,8 @@ public:
     WatchOS,    // Apple watchOS
     Mesa3D,
     Contiki,
-    LastOSType = Contiki
+    AMDPAL,     // AMD PAL Runtime
+    LastOSType = AMDPAL
   };
   enum EnvironmentType {
     UnknownEnvironment,
