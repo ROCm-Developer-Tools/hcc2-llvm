@@ -2051,7 +2051,7 @@ public:
 #ifdef PACKAGE_VENDOR
     OS << PACKAGE_VENDOR << " ";
 #else
-    OS << "LLVM (http://llvm.org/):\n  ";
+    OS << "HCC2-0.3-9 (http://github.com/ROCm-Developer-Tools/hcc2):\n Source ID:0.3-9-1ded51ef8e178b43e33c8107e8398316544ff945-fb83feb27629d800ed9c5c097fe9408fb58f2c09-3747ba52d1ca0bff08d23769fcf9df0d65020038\n  ";
 #endif
     OS << PACKAGE_NAME << " version " << PACKAGE_VERSION;
 #ifdef LLVM_VERSION_INFO
