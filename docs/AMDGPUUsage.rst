@@ -865,7 +865,7 @@ non-AMD key names should be prefixed by "*vendor-name*.".
                                                 See
                                                 :ref:`amdgpu-amdhsa-code-object-kernel-attribute-metadata-mapping-table`
                                                 for the mapping definition.
-     "Arguments"       sequence of              Sequence of mappings of the
+     "Args"            sequence of              Sequence of mappings of the
                        mapping                  kernel arguments. See
                                                 :ref:`amdgpu-amdhsa-code-object-kernel-argument-metadata-mapping-table`
                                                 for the definition of the mapping.
@@ -1075,7 +1075,7 @@ non-AMD key names should be prefixed by "*vendor-name*.".
                                                 .. TODO
                                                    Does this apply to
                                                    GlobalBuffer?
-     "ActualAcc"       string                   The actual memory accesses
+     "ActualAccQual"   string                   The actual memory accesses
                                                 performed by the kernel on the
                                                 kernel argument. Only present if
                                                 "ValueKind" is "GlobalBuffer",
@@ -1200,7 +1200,8 @@ non-AMD key names should be prefixed by "*vendor-name*.".
      =================================== ============== ========= ==============
      String Key                          Value Type     Required? Description
      =================================== ============== ========= ==============
-     "DebuggerABIVersion"                string
+     "DebuggerABIVersion"                sequence of
+                                         2 integers
      "ReservedNumVGPRs"                  integer
      "ReservedFirstVGPR"                 integer
      "PrivateSegmentBufferSGPR"          integer
