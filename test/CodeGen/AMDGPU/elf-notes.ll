@@ -40,6 +40,8 @@ define amdgpu_kernel void @elf_notes() {
 
 ; OSABI-UNK-ELF-NOT: Unknown note type
 ; OSABI-UNK-ELF: NT_AMD_AMDGPU_ISA (ISA Version)
+; OSABI-UNK-ELF: ISA Version:
+; OSABI-UNK-ELF: amdgcn-amd-unknown--gfx800
 ; OSABI-UNK-ELF-NOT: Unknown note type
 ; OSABI-UNK-ELF-NOT: NT_AMD_AMDGPU_HSA_METADATA (HSA Metadata)
 ; OSABI-UNK-ELF-NOT: Unknown note type
@@ -48,16 +50,34 @@ define amdgpu_kernel void @elf_notes() {
 
 ; OSABI-HSA-ELF-NOT: Unknown note type
 ; OSABI-HSA-ELF: NT_AMD_AMDGPU_ISA (ISA Version)
+; OSABI-HSA-ELF: ISA Version:
+; OSABI-HSA-ELF: amdgcn-amd-amdhsa--gfx800
 ; OSABI-HSA-ELF-NOT: Unknown note type
 ; OSABI-HSA-ELF: NT_AMD_AMDGPU_HSA_METADATA (HSA Metadata)
+; OSABI-HSA-ELF: HSA Metadata:
+; OSABI-HSA-ELF: ---
+; OSABI-HSA-ELF: Version: [ 1, 0 ]
+; OSABI-HSA-ELF: Kernels:
+; OSABI-HSA-ELF:   - Name: elf_notes
+; OSABI-HSA-ELF:     CodeProps:
+; OSABI-HSA-ELF:       WavefrontNumSGPRs: 96
+; OSABI-HSA-ELF:       KernargSegmentAlign: 32
+; OSABI-HSA-ELF:       GroupSegmentAlign: 4
+; OSABI-HSA-ELF:       PrivateSegmentAlign: 4
+; OSABI-HSA-ELF:       WavefrontSize:   6
+; OSABI-HSA-ELF: ...
 ; OSABI-HSA-ELF-NOT: Unknown note type
 ; OSABI-HSA-ELF-NOT: NT_AMD_AMDGPU_PAL_METADATA (PAL Metadata)
 ; OSABI-HSA-ELF-NOT: Unknown note type
 
 ; OSABI-PAL-ELF-NOT: Unknown note type
 ; OSABI-PAL-ELF: NT_AMD_AMDGPU_ISA (ISA Version)
+; OSABI-PAL-ELF: ISA Version:
+; OSABI-PAL-ELF: amdgcn-amd-amdpal--gfx800
 ; OSABI-PAL-ELF-NOT: Unknown note type
 ; OSABI-PAL-ELF-NOT: NT_AMD_AMDGPU_HSA_METADATA (HSA Metadata)
 ; OSABI-PAL-ELF-NOT: Unknown note type
 ; OSABI-PAL-ELF: NT_AMD_AMDGPU_PAL_METADATA (PAL Metadata)
+; OSABI-PAL-ELF: PAL Metadata:
+; OSABI-PAL-ELF: 0x2e12,0xac02c0,0x2e13,0x80,0x1000001b,0x1,0x10000022,0x60,0x1000003e,0x0
 ; OSABI-PAL-ELF-NOT: Unknown note type
