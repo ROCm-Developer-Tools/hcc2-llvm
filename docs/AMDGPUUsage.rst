@@ -1177,7 +1177,7 @@ non-AMD key names should be prefixed by "*vendor-name*.".
                                                            registers used by
                                                            each work-item for
                                                            GFX6-GFX9
-     "MaxFlatWorkgroupSize"       integer                  Maximum flat
+     "MaxFlatWorkGroupSize"       integer                  Maximum flat
                                                            work-group size
                                                            supported by the
                                                            kernel in work-items.
@@ -1420,7 +1420,7 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
                                                      then additional space must
                                                      be added to this value for
                                                      the call stack.
-     95:64   4 bytes max_flat_workgroup_size         Maximum flat work-group
+     95:64   4 bytes MaxFlatWorkGroupSize            Maximum flat work-group
                                                      size supported by the
                                                      kernel in work-items.
      96      1 bit   is_dynamic_call_stack           Indicates if the generated
