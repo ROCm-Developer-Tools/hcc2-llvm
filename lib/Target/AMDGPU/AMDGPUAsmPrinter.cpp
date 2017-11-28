@@ -1153,6 +1153,8 @@ AMDGPU::HSAMD::Kernel::CodeProps::Metadata AMDGPUAsmPrinter::getHSACodeProps(
   HSACodeProps.mMaxFlatWorkgroupSize = MFI.getMaxFlatWorkGroupSize();
   HSACodeProps.mIsDynamicCallStack = ProgramInfo.DynamicCallStack;
   HSACodeProps.mIsXNACKEnabled = STM.isXNACKEnabled();
+  HSACodeProps.mNumSpilledSGPRs = MFI.getNumSpilledSGPRs();
+  HSACodeProps.mNumSpilledVGPRs = MFI.getNumSpilledVGPRs();
 
   return HSACodeProps;
 }
